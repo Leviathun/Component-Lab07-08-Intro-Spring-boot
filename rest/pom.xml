@@ -11,8 +11,8 @@
 	<groupId>se331</groupId>
 	<artifactId>rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>331-backend</name>
-	<description>331-backend</description>
+	<name>rest</name>
+	<description>rest</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -37,23 +37,9 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.34</version>
-			<scope>provided</scope>
-		</dependency>
-
-
 	</dependencies>
 
 	<build>
