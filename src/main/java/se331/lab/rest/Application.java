@@ -20,6 +20,8 @@ public class Application {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping ("/events")
 						.allowedOrigins ("http://localhost:5173");
+				registry.addMapping ("/events/*")
+						.allowedOrigins ("http://localhost:5173");
 			}
 		};
 	}
