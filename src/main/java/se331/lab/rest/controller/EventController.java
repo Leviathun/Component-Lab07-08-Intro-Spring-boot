@@ -21,10 +21,14 @@ public class EventController {
         Integer firstIndex = (page-1)*perPage;
 
         List<Event> output = new ArrayList<>();
-        for (int i = firstIndex; i < firstIndex + perPage; i++) {
-            output.add(eventList.get(i));
-        }
+        try {
+            for (int i = firstIndex; i < firstIndex + perPage; i++) {
+                output.add(eventList.get(i));
+            }
             return ResponseEntity.ok(output);
+        }catch (IndexOutOfBoundsException ex) {
+            return ResponseEntity.ok(output);
+        }
     }
 
     @PostConstruct
