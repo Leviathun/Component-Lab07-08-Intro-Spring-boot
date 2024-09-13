@@ -84,7 +84,7 @@ public class EventDaoImpl implements EventDao {
                 .build());
     }
 
-    @override
+    @Override
     public Integer getEventSize() {
         return eventList.size();
     }
@@ -101,7 +101,7 @@ public class EventDaoImpl implements EventDao {
             return output;
     }
 
-    @override
+    @Override
     public Event getEvent(Long id) {
         Event output = null;
         for (Event event : eventList) {
