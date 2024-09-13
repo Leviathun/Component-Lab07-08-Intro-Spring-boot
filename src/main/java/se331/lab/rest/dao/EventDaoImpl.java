@@ -94,7 +94,7 @@ public class EventDaoImpl implements EventDao {
             pageSize = pageSize == null ? eventList.size() : pageSize;
             page = page == null ? 1 : page;
             int firstIndex = (page - 1) * pageSize;
-            return  eventList.subList(firstIndex,firstIndex + pageSize)
+            return  eventList.subList(firstIndex,firstIndex + pageSize);
     }
 
     @Override
