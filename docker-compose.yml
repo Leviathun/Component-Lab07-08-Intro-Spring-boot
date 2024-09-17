@@ -2,7 +2,7 @@ services:
   db:
     image: mysql
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
   phpmyadmin:
@@ -10,5 +10,5 @@ services:
     ports:
       - "9000:80"
     environment:
-      PMA HOST: db
+      PMA_HOST: db
       MYSQL_ROOT_PASSWORD: password
