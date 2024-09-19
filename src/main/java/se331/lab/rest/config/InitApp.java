@@ -5,12 +5,15 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import se331.lab.rest.entity.Event;
+import se331.lab.rest.entity.Organizer;
 import se331.lab.rest.repository.EventRepository;
+import se331.lab.rest.repository.OrganizerRepository;
 
 @Component
 @RequiredArgsConstructor
 public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     final EventRepository eventRepository;
+    final OrganizerRepository organizerRepository;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
@@ -44,7 +47,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .petAllowed(false)
                 .organizer("Chiang Mai")
                 .build());
-        eventRepository. save (Event.builder ()
+        eventRepository.save(Event.builder()
                 .category("Cultural")
                 .title("Songkran")
                 .description("Let's Play Water")
@@ -54,6 +57,24 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .petAllowed(true)
                 .organizer("Chiang Mai Municipality")
                 .build());
+
+        organizerRepository.save(Organizer.builder()
+                .organizationName("CAMT")
+                .address("CAMT Building")
+                .build());
+        organizerRepository.save(Organizer.builder()
+                .organizationName("CMU")
+                .address("CMU Convention hall")
+                .build());
+        organizerRepository.save(Organizer.builder()
+                .organizationName("Chiang Mai")
+                .address("Ping River")
+                .build());
+        organizerRepository.save(Organizer.builder()
+                .organizationName("Chiang Mai Municipality")
+                .address("Chiang Mai Moat")
+                .build());
     }
 }
+
 
