@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventDTO {
+public class ParticipantEventHistoryDTO {
     Long id;
     String category;
     String title;
@@ -19,7 +19,6 @@ public class EventDTO {
     String location;
     String date;
     String time;
-    Boolean petAllowed;
-    EventOrganizerDTO organizer;
-    List<EventParticipantDTO> participants; // Change this to a List
+    Boolean petsAllowed;
+    List<EventParticipantDTO> participants;  // Ensure this is EventParticipantDTO
 }
