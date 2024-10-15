@@ -5,13 +5,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
-import se331.lab.rest.entity.Event;
-import se331.lab.rest.entity.Organizer;
-import se331.lab.rest.entity.Participant;
-import se331.lab.rest.repository.EventRepository;
-import se331.lab.rest.repository.OrganizerRepository;
-import se331.lab.rest.repository.ParticipantRepository;
+import se331.lab.rest.entity.*;
+import se331.lab.rest.repository.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Component
@@ -20,6 +17,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     final EventRepository eventRepository;
     final OrganizerRepository organizerRepository;
     final ParticipantRepository participantRepository;
+    final AuctionRepository auctionRepository;
+    final BidRepository bidRepository;
 
     @Override
     @Transactional
@@ -140,6 +139,172 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         // Assign organizer
         tempEvent.setOrganizer(org3);
         org3.getOwnEvents().add(tempEvent);
+
+        // AUCTIONS
+        Auction tempAuction;
+        Bid tempBid1;
+        Bid tempBid2;
+        Bid tempBid3;
+
+        // creator 1
+        tempBid1 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(55.99))
+                        .dateTime("9th Jan : 10.00am")
+                        .build()
+        );
+        tempBid2 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(112.24))
+                        .dateTime("9th Jan : 11.00am")
+                        .build()
+        );
+        tempBid3 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(100.00))
+                        .dateTime("10th Jan : 01.00am")
+                        .build()
+        );
+        tempAuction = auctionRepository.save(
+                Auction.builder()
+                        .title("Traditional Vase")
+                        .description("Handle with care, do not drop, 2000 years old")
+                        .type("Vase")
+                        .build()
+        );
+        // setter
+        tempAuction.setBids(List.of(tempBid1, tempBid2, tempBid3));
+        tempBid1.setAuction(tempAuction);
+        tempBid2.setAuction(tempAuction);
+        tempBid3.setAuction(tempAuction);
+
+        // creator 2
+        tempBid1 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(123.21))
+                        .dateTime("10th Sep : 9.00am")
+                        .build()
+        );
+        tempBid2 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(456.24))
+                        .dateTime("10th Sep : 11.00pm")
+                        .build()
+        );
+        tempBid3 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(99.56))
+                        .dateTime("11th Sep : 09:03am")
+                        .build()
+        );
+        tempAuction = auctionRepository.save(
+                Auction.builder()
+                        .title("Twin Tower Mini size")
+                        .description("The exact moment we'll never forget")
+                        .type("Model")
+                        .build()
+        );
+        // setter
+        tempAuction.setBids(List.of(tempBid1, tempBid2, tempBid3));
+        tempBid1.setAuction(tempAuction);
+        tempBid2.setAuction(tempAuction);
+        tempBid3.setAuction(tempAuction);
+
+        // creator 3
+        tempBid1 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(75.00))
+                        .dateTime("10th Feb : 12.00pm")
+                        .build()
+        );
+        tempBid2 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(150.00))
+                        .dateTime("10th Feb : 01.00pm")
+                        .build()
+        );
+        tempBid3 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(120.50))
+                        .dateTime("11th Feb : 03.00am")
+                        .build()
+        );
+        tempAuction = auctionRepository.save(
+                Auction.builder()
+                        .title("Antique Chair")
+                        .description("Vintage chair from the early 1800s, needs careful handling")
+                        .type("Chair")
+                        .build()
+        );
+        // setter
+        tempAuction.setBids(List.of(tempBid1, tempBid2, tempBid3));
+        tempBid1.setAuction(tempAuction);
+        tempBid2.setAuction(tempAuction);
+        tempBid3.setAuction(tempAuction);
+
+        // creator 4
+        tempBid1 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(95.50))
+                        .dateTime("15th Mar : 09.00am")
+                        .build()
+        );
+        tempBid2 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(175.75))
+                        .dateTime("15th Mar : 10.30am")
+                        .build()
+        );
+        tempBid3 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(130.00))
+                        .dateTime("16th Mar : 02.00am")
+                        .build()
+        );
+        tempAuction = auctionRepository.save(
+                Auction.builder()
+                        .title("Rare Painting")
+                        .description("Original painting from a famous artist, handle with extreme care")
+                        .type("Painting")
+                        .build()
+        );
+        // setter
+        tempAuction.setBids(List.of(tempBid1, tempBid2, tempBid3));
+        tempBid1.setAuction(tempAuction);
+        tempBid2.setAuction(tempAuction);
+        tempBid3.setAuction(tempAuction);
+
+        // creator 5
+        tempBid1 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(65.45))
+                        .dateTime("20th Apr : 02.00pm")
+                        .build()
+        );
+        tempBid2 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(89.99))
+                        .dateTime("20th Apr : 03.15pm")
+                        .build()
+        );
+        tempBid3 = bidRepository.save(
+                Bid.builder()
+                        .amount(BigDecimal.valueOf(140.00))
+                        .dateTime("21st Apr : 04.30am")
+                        .build()
+        );
+        tempAuction = auctionRepository.save(
+                Auction.builder()
+                        .title("Ancient Sculpture")
+                        .description("Intricate sculpture, over 1500 years old, requires delicate handling")
+                        .type("Sculpture")
+                        .build()
+        );
+        // setter
+        tempAuction.setBids(List.of(tempBid1, tempBid2, tempBid3));
+        tempBid1.setAuction(tempAuction);
+        tempBid2.setAuction(tempAuction);
+        tempBid3.setAuction(tempAuction);
 
         /*organizerRepository.save(Organizer.builder()
                 .organizationName("CAMT")
