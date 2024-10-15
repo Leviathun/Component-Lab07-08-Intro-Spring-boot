@@ -33,6 +33,6 @@ public class EventDaoImpl implements EventDao {
     @Override
     public Page<Event> getEvents(String title, Pageable page) {
         System.out.println(title);
-        return eventRepository.findByTitleContainingOrDescriptionContainingOrOrganizer_NameContaining(title,title,title,page);
+        return eventRepository.findByTitleContainingOrDescriptionContainingOrOrganizer_NameIgnoreCaseContaining(title,title,title,page);
     }
 }
