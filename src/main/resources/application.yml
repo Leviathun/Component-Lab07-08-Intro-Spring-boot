@@ -14,5 +14,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto:
+    servlet:
+      multipart:
+        max-file-size: 10MB
+
 
